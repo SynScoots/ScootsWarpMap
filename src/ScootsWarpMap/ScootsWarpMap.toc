@@ -1,0 +1,8 @@
+## Interface: 30300
+## X-Compatible-With: 40000
+## Title: Scoots Warp Map
+## Notes: Provides a alternative UI for warping.
+## Author: Scoots
+## Version: 1.0.0
+
+ScootsWarpMap.lua
