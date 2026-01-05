@@ -3,6 +3,6 @@
 ## Title: Scoots Warp Map
 ## Notes: Provides a alternative UI for warping.
 ## Author: Scoots
-## Version: 1.1.2
+## Version: 1.1.3
 
 ScootsWarpMap.lua

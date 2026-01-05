@@ -1,5 +1,5 @@
 ScootsWarpMap = {
-    ['version'] = '1.1.2',
+    ['version'] = '1.1.3',
     ['frames'] = {
         ['master'] = CreateFrame('Frame', 'ScootsWarpMap-Master', UIParent)
     },
@@ -530,7 +530,7 @@ ScootsWarpMap.eventHandler = function()
                 ScootsWarpMap.frames.worldMapWarpButton:SetScript('OnClick', function()
                     for _, warp in pairs(TPortData) do
                         if(warp.index == ScootsWarpMap.worldMapWarpIndex) then
-                            CustomTeleportName(warpTarget)
+                            CustomTeleportName(warp.name)
                             ToggleFrame(_G['WorldMapFrame'])
                             break
                         end
