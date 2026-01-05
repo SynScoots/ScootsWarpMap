@@ -1,4 +1,4 @@
-ScootsWarpMap <span style="color: #98fb98">1.1.1</span>.
+ScootsWarpMap <span style="color: #98fb98">1.1.2</span>.
 
 ## Description ##
 
