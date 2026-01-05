@@ -1,5 +1,5 @@
 ScootsWarpMap = {
-    ['version'] = '1.0.0',
+    ['version'] = '1.1.0',
     ['frames'] = {
         ['master'] = CreateFrame('Frame', 'ScootsWarpMap-Master', UIParent)
     },
@@ -327,7 +327,7 @@ ScootsWarpMap.getWarpButton = function(warp)
         ScootsWarpMap.buttons[warp.index].glow:SetPoint('CENTER', 0, 0)
         ScootsWarpMap.buttons[warp.index].glow:SetVertexColor(0.3, 0.3, 0.8)
     
-        ScootsWarpMap.buttons[warp.index].insetBorder = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'OVERLAY')
+        ScootsWarpMap.buttons[warp.index].insetBorder = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'ARTWORK')
         ScootsWarpMap.buttons[warp.index].insetBorder:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
         ScootsWarpMap.buttons[warp.index].insetBorder:SetPoint('BOTTOM', ScootsWarpMap.buttons[warp.index], 'BOTTOM', 0, 1)
         ScootsWarpMap.buttons[warp.index].insetBorder:SetSize(24, 12)
@@ -508,15 +508,29 @@ ScootsWarpMap.eventHandler = function()
         
             if(ScootsWarpMap.frames.worldMapWarpButton == nil) then
                 ScootsWarpMap.frames.worldMapWarpButton = CreateFrame('Button', 'ScootsWarpMap-WarpButton', _G['WorldMapButton'], 'UIPanelButtonTemplate')
-                ScootsWarpMap.frames.worldMapWarpButton:SetSize(60, 20)
+                ScootsWarpMap.frames.worldMapWarpButton:SetSize(60, 30)
                 ScootsWarpMap.frames.worldMapWarpButton:SetPoint('TOPLEFT', _G['WorldMapButton'], 'TOPLEFT', 5, -5)
                 ScootsWarpMap.frames.worldMapWarpButton:SetText('Warp')
                 ScootsWarpMap.frames.worldMapWarpButton:Hide()
                 
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder = ScootsWarpMap.frames.worldMapWarpButton:CreateTexture(nil, 'ARTWORK')
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetPoint('LEFT', ScootsWarpMap.frames.worldMapWarpButton, 'LEFT', 1, 0)
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetSize(15, 30)
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetRotation((math.pi / 2) * 3)
+                ScootsWarpMap.frames.worldMapWarpButton.insetBorder:SetVertexColor(0.85, 0.75, 0.45)
+
+                ScootsWarpMap.frames.worldMapWarpButton.inset = ScootsWarpMap.frames.worldMapWarpButton:CreateTexture(nil, 'OVERLAY')
+                ScootsWarpMap.frames.worldMapWarpButton.inset:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
+                ScootsWarpMap.frames.worldMapWarpButton.inset:SetPoint('LEFT', ScootsWarpMap.frames.worldMapWarpButton, 'LEFT', 1, 0)
+                ScootsWarpMap.frames.worldMapWarpButton.inset:SetSize(11, 22)
+                ScootsWarpMap.frames.worldMapWarpButton.inset:SetRotation((math.pi / 2) * 3)
+                
                 ScootsWarpMap.frames.worldMapWarpButton:SetScript('OnClick', function()
                     for _, warp in pairs(TPortData) do
                         if(warp.index == ScootsWarpMap.worldMapWarpIndex) then
-                            CustomTeleportName(warp.name)
+                            CustomTeleportName(warpTarget)
                             ToggleFrame(_G['WorldMapFrame'])
                             break
                         end
@@ -528,6 +542,15 @@ ScootsWarpMap.eventHandler = function()
             if(learned == 0) then
                 ScootsWarpMap.frames.worldMapWarpButton:Hide()
             else
+                if(learned == 1) then
+                    insetR, insetG, insetB = 0.132, 1, 0
+                elseif(learned == 2) then
+                    insetR, insetG, insetB = 0, 0.584, 0.957
+                else
+                    insetR, insetG, insetB = 0.704, 0.231, 1
+                end
+                
+                ScootsWarpMap.frames.worldMapWarpButton.inset:SetVertexColor(insetR, insetG, insetB)
                 ScootsWarpMap.frames.worldMapWarpButton:Show()
             end
         else
