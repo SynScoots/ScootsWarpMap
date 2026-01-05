@@ -1,5 +1,5 @@
 ScootsWarpMap = {
-    ['version'] = '1.1.0',
+    ['version'] = '1.1.1',
     ['frames'] = {
         ['master'] = CreateFrame('Frame', 'ScootsWarpMap-Master', UIParent)
     },
@@ -327,13 +327,13 @@ ScootsWarpMap.getWarpButton = function(warp)
         ScootsWarpMap.buttons[warp.index].glow:SetPoint('CENTER', 0, 0)
         ScootsWarpMap.buttons[warp.index].glow:SetVertexColor(0.3, 0.3, 0.8)
     
-        ScootsWarpMap.buttons[warp.index].insetBorder = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'ARTWORK')
+        ScootsWarpMap.buttons[warp.index].insetBorder = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'OVERLAY')
         ScootsWarpMap.buttons[warp.index].insetBorder:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
         ScootsWarpMap.buttons[warp.index].insetBorder:SetPoint('BOTTOM', ScootsWarpMap.buttons[warp.index], 'BOTTOM', 0, 1)
         ScootsWarpMap.buttons[warp.index].insetBorder:SetSize(24, 12)
         ScootsWarpMap.buttons[warp.index].insetBorder:SetVertexColor(0.85, 0.75, 0.45)
     
-        ScootsWarpMap.buttons[warp.index].inset = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'OVERLAY')
+        ScootsWarpMap.buttons[warp.index].inset = ScootsWarpMap.buttons[warp.index]:CreateTexture(nil, 'HIGHLIGHT')
         ScootsWarpMap.buttons[warp.index].inset:SetTexture('Interface\\AddOns\\ScootsWarpMap\\Textures\\Inset')
         ScootsWarpMap.buttons[warp.index].inset:SetPoint('BOTTOM', ScootsWarpMap.buttons[warp.index], 'BOTTOM', 0, 1)
         ScootsWarpMap.buttons[warp.index].inset:SetSize(16, 8)
